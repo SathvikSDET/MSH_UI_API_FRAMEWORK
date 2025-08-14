@@ -314,32 +314,4 @@ logging.level=DEBUG
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 📞 Support
 
-For questions and support:
-- Create an issue in the repository
-- Contact the development team
-- Review the documentation and examples
-
-##  Version History
-
-- **v1.0.0**: Initial framework implementation
-  - Core framework classes
-  - Page Object implementations
-  - Message Box Task automation
-  - TestNG integration
-  - Configuration management
-
-- **v1.1.0**: Form with Upload Flow implementation
-  - Form creation and design functionality
-  - Drag & drop canvas implementation
-  - File upload automation
-  - Form submission validation
-  - Enhanced test coverage
-
-- **v1.2.0**: Learning Instance API Flow implementation
-  - API automation framework foundation
-  - REST Assured integration
-  - Learning Instance CRUD operations
-  - Comprehensive API validation
-  - Response time and schema validation
