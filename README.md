@@ -2,7 +2,7 @@
 
 A comprehensive UI automation framework for automating Message Box Task creation using Selenium WebDriver, TestNG, and following the Page Object Model (POM) design pattern.
 
-## 🎯 Use Cases
+##  Use Cases
 
 ### Use Case 1: Message Box Task (UI Automation)
 
@@ -65,7 +65,7 @@ A comprehensive UI automation framework for automating Message Box Task creation
   - Response body schema and field-level checks (e.g., ID, name, status)
   - Functional accuracy (e.g., instance created with correct data and status)
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Design Patterns
 - **Page Object Model (POM)**: Organizes page elements and actions
@@ -98,7 +98,7 @@ src/
     └── testng.xml                    # TestNG configuration
 ```
 
-## 🚀 Features
+## Features
 
 ### Core Framework
 - **WebDriver Factory**: Supports Chrome, Firefox, Edge, and Safari
@@ -126,14 +126,14 @@ src/
 - **Parallel Execution**: Configurable parallel test execution
 - **Comprehensive Assertions**: UI element visibility and functional validation
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Java 8 or higher
 - Maven 3.6 or higher
 - Chrome, Firefox, Edge, or Safari browser
 - Internet connection for WebDriver downloads
 
-## 🛠️ Installation
+## Installation
 
 1. **Clone the repository**
    ```bash
@@ -151,7 +151,7 @@ src/
    - Update application URLs and test credentials
    - Configure browser preferences
 
-## 🧪 Running Tests
+##  Running Tests
 
 ### Run all tests
 ```bash
@@ -178,7 +178,7 @@ mvn test -DsuiteXmlFile=src/test/resources/testng.xml
 mvn test -Dparallel=methods -DthreadCount=2
 ```
 
-## 📊 Test Reports
+##  Test Reports
 
 TestNG generates comprehensive HTML reports in the `target/surefire-reports` directory:
 - Test execution summary
@@ -186,7 +186,7 @@ TestNG generates comprehensive HTML reports in the `target/surefire-reports` dir
 - Execution time and statistics
 - Screenshots on failure (if configured)
 
-## ⚙️ Configuration
+## Configuration
 
 ### Browser Configuration
 ```properties
@@ -210,7 +210,7 @@ test.password=TestPassword123!
 test.task.name=Message Box Automation Task
 ```
 
-## 🔧 Customization
+## Customization
 
 ### Adding New Pages
 1. Create a new class extending `BasePage`
@@ -227,7 +227,7 @@ test.task.name=Message Box Automation Task
 2. Add browser-specific options and configurations
 3. Update TestNG configuration if needed
 
-## 🧪 Test Cases
+##  Test Cases
 
 #### Message Box Task Tests
 1. **Complete Message Box Task Creation Flow**
@@ -268,7 +268,7 @@ test.task.name=Message Box Automation Task
    - Validates Create, Read, Update, and Delete operations
    - Ensures complete API functionality coverage
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 1. **WebDriver not found**: Ensure WebDriverManager dependency is included
@@ -282,7 +282,7 @@ Enable debug logging by setting:
 logging.level=DEBUG
 ```
 
-## 📈 Best Practices
+## Best Practices
 
 ### Code Organization
 - Follow POM design pattern strictly
@@ -302,7 +302,7 @@ logging.level=DEBUG
 - Update test data as application changes
 - Monitor test execution reports
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -310,7 +310,7 @@ logging.level=DEBUG
 4. Add tests for new functionality
 5. Submit a pull request
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
@@ -321,7 +321,7 @@ For questions and support:
 - Contact the development team
 - Review the documentation and examples
 
-## 🔄 Version History
+##  Version History
 
 - **v1.0.0**: Initial framework implementation
   - Core framework classes
