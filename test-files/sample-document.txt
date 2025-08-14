@@ -1,0 +1,21 @@
+This is a sample document for testing file upload functionality in the Form with Upload Flow automation.
+
+Document Details:
+- Type: Text Document
+- Purpose: Testing file upload automation
+- Created: Automated test framework
+- Content: Sample text for validation
+
+This document will be used to verify:
+1. File selection from shared folder
+2. File upload process and completion
+3. Form submission behavior
+4. Backend response validation
+
+The automation framework should successfully:
+- Select this file from the file system
+- Upload it through the form interface
+- Verify successful upload completion
+- Validate form submission response
+
+End of sample document.

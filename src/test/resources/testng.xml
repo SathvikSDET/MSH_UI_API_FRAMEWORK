@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Message Box Task Automation Suite" verbose="1">
+    
+    <test name="Message Box Task Tests" preserve-order="true">
+        <parameter name="browser" value="chrome"/>
+        
+        <classes>
+            <class name="com.automationframework.tests.MessageBoxTaskTest">
+                <methods>
+                    <include name="testMessageBoxTaskCreation"/>
+                    <include name="testUIElementVisibility"/>
+                    <include name="testFunctionalFlow"/>
+                </methods>
+            </class>
+            <class name="com.automationframework.tests.FormWithUploadTest">
+                <methods>
+                    <include name="testFormWithUploadFlow"/>
+                    <include name="testFormCreationAndDesign"/>
+                    <include name="testFileUploadAndSubmission"/>
+                </methods>
+            </class>
+            <class name="com.automationframework.tests.LearningInstanceApiTest">
+                <methods>
+                    <include name="testCompleteLearningInstanceApiFlow"/>
+                    <include name="testLearningInstanceCreationWithDefaultData"/>
+                    <include name="testLearningInstanceCreationWithCustomData"/>
+                    <include name="testLearningInstanceCreationWithRandomData"/>
+                    <include name="testLearningInstanceRetrievalAndValidation"/>
+                    <include name="testLearningInstanceUpdateAndValidation"/>
+                    <include name="testLearningInstanceDeletionAndValidation"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    
+    <!-- Parallel execution configuration for multiple browsers -->
+    <test name="Cross Browser Tests" parallel="methods" thread-count="2">
+        <parameter name="browser" value="chrome"/>
+        
+        <classes>
+            <class name="com.automationframework.tests.MessageBoxTaskTest">
+                <methods>
+                    <include name="testMessageBoxTaskCreation"/>
+                </methods>
+            </class>
+            <class name="com.automationframework.tests.FormWithUploadTest">
+                <methods>
+                    <include name="testFormWithUploadFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    
+    <test name="Firefox Tests">
+        <parameter name="browser" value="firefox"/>
+        
+        <classes>
+            <class name="com.automationframework.tests.MessageBoxTaskTest">
+                <methods>
+                    <include name="testMessageBoxTaskCreation"/>
+                </methods>
+            </class>
+            <class name="com.automationframework.tests.FormWithUploadTest">
+                <methods>
+                    <include name="testFormWithUploadFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    
+    <test name="Edge Tests">
+        <parameter name="browser" value="edge"/>
+        
+        <classes>
+            <class name="com.automationframework.tests.MessageBoxTaskTest">
+                <methods>
+                    <include name="testMessageBoxTaskCreation"/>
+                </methods>
+            </class>
+            <class name="com.automationframework.tests.FormWithUploadTest">
+                <methods>
+                    <include name="testFormWithUploadFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    
+</suite>
