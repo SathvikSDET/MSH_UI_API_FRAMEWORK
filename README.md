@@ -138,7 +138,7 @@ src/
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd TESTF
+   cd MSH_UI_API_FRAMEWORK
    ```
 
 2. **Install dependencies**
