@@ -255,7 +255,7 @@ logging.level.com.automationframework=DEBUG
 - Optimize wait strategies
 - Use efficient element locators
 
-## 📈 Best Practices
+## Best Practices
 
 ### Code Organization
 - Follow POM design pattern strictly
