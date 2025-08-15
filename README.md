@@ -1,139 +1,95 @@
-# Message Box Task Automation Framework
+# MSH UI API Framework
 
-A comprehensive UI automation framework for automating Message Box Task creation using Selenium WebDriver, TestNG, and following the Page Object Model (POM) design pattern.
+A comprehensive automation framework for UI and API testing built with Selenium WebDriver, TestNG, and REST Assured. This framework follows the Page Object Model (POM) design pattern and provides robust automation capabilities for web applications and REST APIs.
 
-##  Use Cases
+##  Project Overview
 
-### Use Case 1: Message Box Task (UI Automation)
-
-#### Steps:
-1. Log in to the application
-2. Navigate to Automation from the left-hand menu
-3. Click on the Create dropdown and select Task Bot
-4. Fill in all mandatory details and click the Create button
-5. In the Actions panel, search for Message Box and double-click to add it
-6. On the right panel, verify every UI element interaction
-7. Save the configuration
-
-#### Expectations:
-- Automate the flow for creating a message box task
-- Use POM for organizing elements and actions
-- Assert the following:
-  - UI element visibility
-  - Proper data entry
-  - Successful creation and confirmation messages
-  - Full functional flow validation
-
-### Use Case 2: Form with Upload Flow (UI Automation)
-
-#### Steps:
-1. Log in to the application
-2. Navigate to Automation from the left-hand menu
-3. Click on the Create dropdown and select Form
-4. Fill in all mandatory details and click the Create button
-5. From the left menu, drag and drop the Textbox and Select File elements onto the canvas
-6. Click on each element and verify all UI interactions in the right panel
-7. Enter text in the textbox and upload a document from your shared folder
-8. Save the form and verify whether the document is uploaded successfully
-
-#### Expectations:
-- Build and automate a form with:
-  - A Text Box input field
-  - A File Upload control
-- Automate the following:
-  - Text input interaction
-  - File selection from a shared folder
-  - File upload process and completion
-- Assert the following:
-  - UI element visibility and functionality
-  - File upload status and confirmation
-  - Form submission behavior and backend response
-
-### Use Case 3: Learning Instance API Flow (API Automation)
-
-#### Steps:
-1. Perform login using the provided credentials
-2. After login, navigate to learning instance under AI tab
-3. Create a Learning Instance
-4. Validate the created instance with appropriate checks
-
-#### Expectations:
-- Identify required API endpoints using the browser Network tab
-- Perform the following validations:
-  - HTTP status code (e.g., 200 OK, 201 Created)
-  - Response time (optional but preferred)
-  - Response body schema and field-level checks (e.g., ID, name, status)
-  - Functional accuracy (e.g., instance created with correct data and status)
+The MSH UI API Framework is designed to automate complex workflows including:
+- **UI Automation**: Message Box Task creation, Form building with drag & drop, File uploads
+- **API Automation**: Learning Instance management with comprehensive validation
+- **Cross-browser Testing**: Support for Chrome, Firefox, Edge, and Safari
+- **Parallel Execution**: Configurable parallel test execution for faster results
 
 ##  Architecture
 
 ### Design Patterns
-- **Page Object Model (POM)**: Organizes page elements and actions
+- **Page Object Model (POM)**: Organizes page elements and actions for maintainable tests
 - **Factory Pattern**: Manages WebDriver creation and configuration
-- **DRY Principle**: Eliminates code duplication through base classes
+- **Base Class Pattern**: Common functionality through abstract base classes
+- **DRY Principle**: Eliminates code duplication through reusable components
 
 ### Framework Structure
 ```
 src/
 ├── main/java/com/automationframework/
 │   ├── core/                          # Core framework classes
-│   │   ├── BasePage.java             # Abstract base page class
+│   │   ├── BasePage.java             # Abstract base page with common methods
 │   │   ├── BaseTest.java             # Abstract base test class
-│   │   ├── WebDriverFactory.java     # WebDriver factory
+│   │   ├── WebDriverFactory.java     # WebDriver factory for multiple browsers
 │   │   └── WebExceptions.java        # Custom exception handling
 │   ├── pages/                         # Page Object classes
-│   │   ├── LoginPage.java            # Login page
-│   │   ├── DashboardPage.java        # Dashboard page
-│   │   ├── AutomationPage.java       # Automation page
-│   │   ├── TaskBotPage.java          # Task Bot creation page
-│   │   └── TaskBotActionsPage.java   # Task Bot actions page
+│   │   ├── LoginPage.java            # User authentication
+│   │   ├── DashboardPage.java        # Dashboard navigation
+│   │   ├── AutomationPage.java       # Automation section management
+│   │   ├── TaskBotPage.java          # Task Bot creation
+│   │   ├── TaskBotActionsPage.java   # Task Bot actions configuration
+│   │   ├── FormPage.java             # Form creation and management
+│   │   ├── FormDesignerPage.java     # Form design canvas
+│   │   └── FormPreviewPage.java      # Form preview and submission
+│   ├── api/                           # API automation classes
+│   │   ├── ApiBaseClass.java         # Base API functionality
+│   │   └── LearningInstanceApi.java  # Learning Instance API operations
 │   └── utils/                         # Utility classes
 │       ├── ConfigManager.java         # Configuration management
-│       └── TestDataProvider.java      # Test data provider
+│       └── TestDataProvider.java      # Test data generation
 ├── test/java/com/automationframework/
-│   └── tests/
-│       └── MessageBoxTaskTest.java    # Main test class
+│   └── tests/                         # Test classes
+│       ├── MessageBoxTaskTest.java    # Message Box Task automation
+│       ├── FormWithUploadTest.java    # Form creation and upload flow
+│       └── LearningInstanceApiTest.java # Learning Instance API tests
 └── resources/
-    ├── config.properties              # Configuration properties
-    └── testng.xml                    # TestNG configuration
+    ├── config.properties              # Framework configuration
+    └── testng.xml                    # TestNG test suite configuration
 ```
 
-## Features
+##  Key Features
 
 ### Core Framework
-- **WebDriver Factory**: Supports Chrome, Firefox, Edge, and Safari
-- **Base Classes**: Common functionality for pages and tests
-- **Exception Handling**: Custom WebExceptions with specific types
+- **Multi-browser Support**: Chrome, Firefox, Edge, Safari
+- **WebDriver Management**: Automatic driver setup and configuration
+- **Exception Handling**: Custom WebExceptions with specific error types
 - **Configuration Management**: Centralized configuration via properties file
+- **Logging**: Comprehensive logging with Logback and Log4j
 
-### Page Objects
-- **LoginPage**: User authentication functionality
-- **DashboardPage**: Navigation and dashboard actions
-- **AutomationPage**: Automation section management
-- **TaskBotPage**: Task Bot creation and configuration
-- **TaskBotActionsPage**: Message Box action management
-- **FormPage**: Form creation and configuration
-- **FormDesignerPage**: Form design canvas and drag & drop functionality
-- **FormPreviewPage**: Form preview, text input, and file upload
+### UI Automation
+- **Page Object Model**: Maintainable and reusable page elements
+- **Element Interactions**: Comprehensive UI element handling
+- **Wait Strategies**: Implicit, explicit, and page load waits
+- **Cross-browser Compatibility**: Consistent behavior across browsers
+- **Screenshot Capture**: Automatic screenshots on test failures
 
-### API Classes
-- **ApiBaseClass**: Base API functionality and utilities
-- **LearningInstanceApi**: Learning Instance specific API operations
+### API Automation
+- **REST Assured Integration**: Powerful REST API testing
+- **JSON Schema Validation**: Response structure validation
+- **Response Time Monitoring**: Performance validation
+- **Data Serialization**: JSON to Java object conversion
+- **Authentication Support**: Login and session management
 
 ### Test Framework
-- **TestNG Integration**: Test execution and reporting
-- **Cross-browser Testing**: Support for multiple browsers
+- **TestNG Integration**: Advanced test execution and reporting
 - **Parallel Execution**: Configurable parallel test execution
-- **Comprehensive Assertions**: UI element visibility and functional validation
+- **Data Providers**: Dynamic test data generation
+- **Test Suites**: Organized test execution
+- **Comprehensive Reporting**: Detailed test execution reports
 
-## Prerequisites
+##  Prerequisites
 
-- Java 8 or higher
-- Maven 3.6 or higher
-- Chrome, Firefox, Edge, or Safari browser
-- Internet connection for WebDriver downloads
+- **Java**: 8 or higher
+- **Maven**: 3.6 or higher
+- **Browsers**: Chrome, Firefox, Edge, or Safari
+- **Internet Connection**: For WebDriver downloads and dependencies
 
-## Installation
+##  Installation
 
 1. **Clone the repository**
    ```bash
@@ -146,10 +102,10 @@ src/
    mvn clean install
    ```
 
-3. **Update configuration**
+3. **Configure the framework**
    - Edit `src/main/resources/config.properties`
    - Update application URLs and test credentials
-   - Configure browser preferences
+   - Configure browser preferences and timeouts
 
 ##  Running Tests
 
@@ -161,11 +117,15 @@ mvn test
 ### Run specific test class
 ```bash
 mvn test -Dtest=MessageBoxTaskTest
+mvn test -Dtest=FormWithUploadTest
+mvn test -Dtest=LearningInstanceApiTest
 ```
 
 ### Run with specific browser
 ```bash
 mvn test -Dbrowser=firefox
+mvn test -Dbrowser=chrome
+mvn test -Dbrowser=edge
 ```
 
 ### Run TestNG suite
@@ -181,10 +141,11 @@ mvn test -Dparallel=methods -DthreadCount=2
 ##  Test Reports
 
 TestNG generates comprehensive HTML reports in the `target/surefire-reports` directory:
-- Test execution summary
-- Passed/failed test details
-- Execution time and statistics
+- Test execution summary with pass/fail statistics
+- Detailed test method results
+- Execution time and performance metrics
 - Screenshots on failure (if configured)
+- Console output and error details
 
 ## Configuration
 
@@ -193,6 +154,7 @@ TestNG generates comprehensive HTML reports in the `target/surefire-reports` dir
 browser.default=chrome
 browser.headless=false
 browser.maximize=true
+browser.implicitWait=10
 ```
 
 ### Timeout Configuration
@@ -203,70 +165,62 @@ webdriver.timeout.pageLoad=30
 webdriver.timeout.script=30
 ```
 
-### Test Data Configuration
+### Application Configuration
 ```properties
-test.username=testuser@example.com
-test.password=TestPassword123!
-test.task.name=Message Box Automation Task
+app.baseUrl=https://your-application-url.com
+app.username=testuser@example.com
+app.password=TestPassword123!
 ```
 
-## Customization
+### Test Data Configuration
+```properties
+test.task.name=Message Box Automation Task
+test.form.name=Upload Form Test
+test.learning.instance.name=Test Learning Instance
+```
+
+##  Framework Customization
 
 ### Adding New Pages
 1. Create a new class extending `BasePage`
 2. Define page elements using `@FindBy` annotations
 3. Implement page-specific actions and validations
+4. Add proper exception handling and logging
 
 ### Adding New Tests
 1. Create a new class extending `BaseTest`
 2. Implement the `navigateToApplication()` method
 3. Add test methods with appropriate assertions
+4. Use data providers for test data management
+
+### Adding New API Endpoints
+1. Extend `ApiBaseClass` for common functionality
+2. Implement specific API operations
+3. Add response validation and error handling
+4. Include proper logging and reporting
 
 ### Adding New Browsers
 1. Update `WebDriverFactory.createDriver()` method
 2. Add browser-specific options and configurations
 3. Update TestNG configuration if needed
+4. Test compatibility across different versions
 
-##  Test Cases
+##  Test Scenarios
 
-#### Message Box Task Tests
-1. **Complete Message Box Task Creation Flow**
-   - End-to-end automation of the complete workflow
-   - Validates all steps from login to configuration save
+### 1. Message Box Task Automation
+- **Objective**: Automate complete Message Box Task creation workflow
+- **Flow**: Login → Navigation → Task Creation → Action Configuration → Save
+- **Validation**: UI element visibility, data entry, successful creation, confirmation messages
 
-2. **UI Element Visibility Validation**
-   - Ensures all required UI elements are visible
-   - Validates element presence at each step
+### 2. Form with Upload Flow
+- **Objective**: Automate form creation with drag & drop and file upload
+- **Flow**: Form Creation → Design Canvas → Element Addition → File Upload → Submission
+- **Validation**: Drag & drop functionality, text input, file upload, form submission
 
-3. **Functional Flow Validation**
-   - Verifies complete functional flow and expected behaviors
-   - Validates successful completion of all operations
-
-#### Form with Upload Tests
-4. **Complete Form with Upload Flow**
-   - End-to-end automation of form creation, design, and submission
-   - Validates drag & drop, text input, and file upload
-
-5. **Form Creation and Design Validation**
-   - Validates form creation, design elements, and canvas functionality
-   - Ensures proper drag & drop behavior
-
-6. **File Upload and Form Submission Validation**
-   - Validates file upload functionality and form submission behavior
-   - Verifies backend response and upload confirmation
-
-#### Learning Instance API Tests
-7. **Complete Learning Instance API Flow**
-   - End-to-end API automation for Learning Instance creation and validation
-   - Validates login, navigation, creation, and response validation
-
-8. **Learning Instance Creation with Different Data Types**
-   - Validates creation with default, custom, and random test data
-   - Ensures robust API testing with various input scenarios
-
-9. **Learning Instance CRUD Operations**
-   - Validates Create, Read, Update, and Delete operations
-   - Ensures complete API functionality coverage
+### 3. Learning Instance API Flow
+- **Objective**: Automate Learning Instance management through APIs
+- **Flow**: Authentication → Navigation → Instance Creation → Validation
+- **Validation**: HTTP status codes, response time, schema validation, functional accuracy
 
 ##  Troubleshooting
 
@@ -275,43 +229,60 @@ test.task.name=Message Box Automation Task
 2. **Element not found**: Check element locators and page loading
 3. **Timeout issues**: Adjust wait timeouts in configuration
 4. **Browser compatibility**: Verify browser version compatibility
+5. **API connection issues**: Check network connectivity and authentication
 
 ### Debug Mode
 Enable debug logging by setting:
 ```properties
 logging.level=DEBUG
+logging.level.com.automationframework=DEBUG
 ```
 
-## Best Practices
+### Performance Issues
+- Use headless mode for faster execution
+- Implement parallel execution
+- Optimize wait strategies
+- Use efficient element locators
+
+## 📈 Best Practices
 
 ### Code Organization
 - Follow POM design pattern strictly
 - Use meaningful names for page objects and methods
 - Implement proper exception handling
 - Add comprehensive JavaDoc comments
+- Maintain consistent coding standards
 
 ### Test Design
 - Keep tests independent and isolated
 - Use descriptive test method names
 - Implement proper setup and teardown
 - Add meaningful assertions and validations
+- Use data providers for test data
 
 ### Maintenance
 - Regular updates of WebDriver versions
 - Periodic review of element locators
 - Update test data as application changes
 - Monitor test execution reports
+- Maintain test environment consistency
 
-## Contributing
+##  Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-##  License
+### Contribution Guidelines
+- Follow existing code style and patterns
+- Add tests for new functionality
+- Update documentation as needed
+- Ensure all tests pass before submitting
+- Provide clear commit messages
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+
+
 
 
