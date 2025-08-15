@@ -2,6 +2,17 @@
 
 A comprehensive automation framework for UI and API testing built with Selenium WebDriver, TestNG, and REST Assured. This framework follows the Page Object Model (POM) design pattern and provides robust automation capabilities for web applications and REST APIs.
 
+### Disclaimer
+
+Since the assignment did not include an actual website or UI under test, the following were assumed for demonstration purposes:
+- **Locators/selectors**: IDs, classes, and XPath patterns are inferred based on common UI conventions.
+- **Page structure and flows**: Typical navigation and component layouts are assumed.
+- **Test cases and associated methods**: Implemented to reflect realistic scenarios using the assumed UI.
+
+Replace the assumed locators and flows with your application's real identifiers and behaviors when integrating with a live system.
+
+
+
 ##  Project Overview
 
 The MSH UI API Framework is designed to automate complex workflows including:
